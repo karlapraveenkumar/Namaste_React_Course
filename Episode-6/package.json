@@ -1,0 +1,31 @@
+{
+  "name": "namaste_react_episode2",
+  "version": "1.0.0",
+  "description": "This is react course",
+  "scripts": {
+    "start": "parcel index.html",
+    "build" : "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlapraveenkumar/Namaste_React.git"
+  },
+  "author": "Praveen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karlapraveenkumar/Namaste_React/issues"
+  },
+  "homepage": "https://github.com/karlapraveenkumar/Namaste_React#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist" : [
+    "last 2 versions"
+  ]
+}
