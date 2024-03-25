@@ -49,6 +49,7 @@
     - useState() => Used to generate(create) super powerfull state variables in react
     - useEffect() => 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 # 2 Types of Routing in web apps
@@ -118,3 +119,5 @@
         - npm i -D @testing-library/jest-dom
 
 >>>>>>> 9335c87 (adding changes)
+=======
+>>>>>>> f76f22b03b158cde3c92c6796e042d00c4b3d009

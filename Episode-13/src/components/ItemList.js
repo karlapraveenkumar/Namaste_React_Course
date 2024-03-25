@@ -16,11 +16,15 @@ const ItemList = ({items})=>{
     return (
         <div>
             {items.map((item)=>(
+<<<<<<< HEAD
                 <div
                     data-testid= "foodItems"
                     className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between" 
                     key={item.card.info.id}
                 >
+=======
+                <div className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between" key={item.card.info.id}>
+>>>>>>> f76f22b03b158cde3c92c6796e042d00c4b3d009
 
                     <div className="w-9/12">
                         <div className=" py-2">

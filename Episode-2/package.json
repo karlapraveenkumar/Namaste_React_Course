@@ -37,6 +37,10 @@
   },
   "browserslist": [
     "last 2 versions"
+<<<<<<< HEAD
   ],
   "main": "index.js"
+=======
+  ]
+>>>>>>> f76f22b03b158cde3c92c6796e042d00c4b3d009
 }
