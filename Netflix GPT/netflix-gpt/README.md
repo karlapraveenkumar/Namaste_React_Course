@@ -2,6 +2,8 @@
 
     - Create React App
     - Configured Tailwind Css into our app
+    - Header
+    - Login Form
     
 # Features
     - Login/SignUp
@@ -17,4 +19,6 @@
 
     - Netflix GPT
         - Search bar
-        - Movie Suggestions               
+        - Movie Suggestions
+
+- Installed, npm i -D react/router-dom 
