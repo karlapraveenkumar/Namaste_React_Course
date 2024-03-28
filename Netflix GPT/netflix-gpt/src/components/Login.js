@@ -4,10 +4,10 @@ import { checkValidData } from "../utils/validate";
 import {createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import  {updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 
 const Login = ()=>{
 
@@ -15,7 +15,7 @@ const Login = ()=>{
 
     const[isSignInForm , setIsSignInForm] = useState(true);
     const[errorMessage, seterrorMessage] = useState(null);
-    const navigate = useNavigate();
+
 
     const email = useRef(null);
     const password = useRef(null);
@@ -40,15 +40,22 @@ const Login = ()=>{
                     const user = userCredential.user;
                     updateProfile(user, {
                         displayName: name.current.value,
-                        photoURL: "https://avatars.githubusercontent.com/u/157881195?v=4"
+                        photoURL: USER_AVATAR
                         })
                         .then(() => {
                             // Profile updated!
                             // auth is the new updated value from firebase (and in Store)
                             // here user not updated with displayName and photoURL
                             const {uid, email, displayName, photoURL} = auth.currentUser;
-                            dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL:photoURL}));                            
-                            navigate("/browse");
+                            dispatch(
+                                addUser({
+                                    uid:uid,
+                                    email:email,
+                                    displayName:displayName,
+                                    photoURL:USER_AVATAR
+                                })
+                            );                          
+                            //navigate("/browse"); changed this logic to header
                         })
                         .catch((error) => {
                             // An error occurred
@@ -66,7 +73,7 @@ const Login = ()=>{
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
                 .then((userCredential) => {
                     const user = userCredential.user;
-                    navigate("/browse")
+                    //navigate("/browse"). we have changed logic to header
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -82,9 +89,9 @@ const Login = ()=>{
     }
 
     return(
-        <div>
+        <div className="w-screen">
             <Header/>
-            <div className="absolute">
+            <div className="absolute w-screen">
                 <img src="https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg"
                     alt="Background_image" />
             </div>
