@@ -8,6 +8,7 @@ import  {updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { USER_AVATAR } from "../utils/constants";
+import { Background_image } from "../utils/constants";
 
 const Login = ()=>{
 
@@ -91,8 +92,9 @@ const Login = ()=>{
     return(
         <div className="w-screen">
             <Header/>
-            <div className="absolute w-screen">
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+
+            <div className="absolute">
+                <img src={Background_image}
                     alt="Background_image" />
             </div>
             <form onSubmit={(e)=>e.preventDefault()} className="absolute bg-black w-3/12 p-12 mx-auto my-36 right-0 left-0 text-white rounded-lg bg-opacity-80">
