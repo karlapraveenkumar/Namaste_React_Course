@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import lang from '../utils/languageConstants'
 import { useDispatch, useSelector } from 'react-redux'
 import model from '../utils/geminiai'
@@ -21,24 +21,20 @@ const GptSearchBar = () => {
     const json = await data.json();
     return json.results;
   }
-  
+
+
+
+
 
   const handleGptSearchClick = async()=>{
-
-    /*const gptResults = await openai.chat.completions.create({
-      messages: [{ role: 'user', content: searchText.current.value }],
-      model: 'gpt-3.5-turbo',
-    });
-
-    //console.log(gptResults.choices);
-    */
-
+  
     const gptQuery = "Act as a Movie Recommendation system and suggest some movies for the query : " 
       + searchText.current.value + 
       ". only give me names of 5 moives, comma seperated like the example result given ahead. Example result: Bahubali, Salar, RRR, Saaho, Ala Vainkuntapuram";
 
-    const prompt = gptQuery; 
-    const result = await model.generateContent(prompt);
+    const prompt = gptQuery;    
+
+    const result = await model.generateContent(prompt)
     const response = await result.response;
     const text = response.text();
 
@@ -57,6 +53,7 @@ const GptSearchBar = () => {
   }
 
 
+
   return (
     <div className='pt-[10%] flex justify-center'>
         <form 
@@ -67,7 +64,7 @@ const GptSearchBar = () => {
 
           <button 
             className={'py-2 m-4 col-span-3 bg-red-700 text-white rounded-lg hover:bg-red-800'}
-            onClick={handleGptSearchClick}
+            onClick= {handleGptSearchClick}
           >
             {lang[langKey].search}
           </button>

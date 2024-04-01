@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addCheckingTvList } from "../utils/moviesSlice";
 import { useEffect } from "react";
@@ -6,6 +6,7 @@ import { useEffect } from "react";
 const useAddCheckingList = ()=>{
 
     const dispatch = useDispatch();
+    const checkinglist = useSelector(store => store.movies.Checking);
 
     const getAddCheckingList = async()=>{
       //const data = await fetch("https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1",
@@ -19,7 +20,7 @@ const useAddCheckingList = ()=>{
     }
   
     useEffect(()=>{
-      getAddCheckingList();
+      !checkinglist && getAddCheckingList();
     },[])
 
 }
