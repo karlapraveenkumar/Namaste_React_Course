@@ -94,12 +94,12 @@ const Login = ()=>{
             <Header/>
 
             <div className="absolute">
-                <img src={Background_image}
+                <img className="h-screen object-cover md:w-screen" src={Background_image}
                     alt="Background_image" />
             </div>
-            <form onSubmit={(e)=>e.preventDefault()} className="absolute bg-black w-3/12 p-12 mx-auto my-36 right-0 left-0 text-white rounded-lg bg-opacity-80">
+            <form onSubmit={(e)=>e.preventDefault()} className="absolute bg-black w-full md:w-3/12 p-12 mx-auto my-36 right-0 left-0 text-white rounded-lg bg-opacity-80">
                 
-                <h1 className="font-bold text-white text-3xl my-4">{isSignInForm ? "Sign In" : "Sign Up"}</h1>
+                <h1 className="font-bold text-white text-2xl md:text-3xl my-4">{isSignInForm ? "Sign In" : "Sign Up"}</h1>
                 {!isSignInForm && <input ref={name} type="text" placeholder="Full Name" className="p-2 my-4 w-full bg-gray-700"/>}
                 <input
                     ref={email}
@@ -110,7 +110,7 @@ const Login = ()=>{
                     type="password" placeholder="Password" className="p-2 my-4 w-full bg-gray-700"/>
 
                 <button 
-                    className="p-2 my-6 bg-red-700  hover:bg-red-800 text-white text-sm font-bold w-full rounded-lg"
+                    className="p-2 my-6 bg-red-700  hover:bg-red-800 text-white text-sm font-bold w-full rounded-lg focus:ring-1 ring-offset-2"
                     onClick={handleButtonClick}
                 >
                     {isSignInForm ? "Sign In" : "Sign Up"}

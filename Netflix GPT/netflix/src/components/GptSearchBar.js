@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useState } from 'react'
 import lang from '../utils/languageConstants'
 import { useDispatch, useSelector } from 'react-redux'
 import model from '../utils/geminiai'
@@ -12,7 +12,13 @@ const GptSearchBar = () => {
 
   const dispatch = useDispatch();
   const langKey = useSelector(store=> store.config.lang);
-  const searchText = useRef(null);
+
+
+  const [searchText, setSearchText] = useState("");
+  const handleChangeSearchInput = (event)=>{
+    setSearchText(event?.target?.value);
+  }
+
 
   const searchMoiveTMDB = async(moive)=>{
     const data = await fetch("https://api.themoviedb.org/3/search/movie?query="
@@ -23,13 +29,10 @@ const GptSearchBar = () => {
   }
 
 
-
-
-
   const handleGptSearchClick = async()=>{
   
     const gptQuery = "Act as a Movie Recommendation system and suggest some movies for the query : " 
-      + searchText.current.value + 
+      + searchText + 
       ". only give me names of 5 moives, comma seperated like the example result given ahead. Example result: Bahubali, Salar, RRR, Saaho, Ala Vainkuntapuram";
 
     const prompt = gptQuery;    
@@ -55,19 +58,21 @@ const GptSearchBar = () => {
 
 
   return (
-    <div className='pt-[10%] flex justify-center'>
+    <div className='pt-[40%] md:pt-[10%] flex justify-center'>
         <form 
-          className='w-1/2 grid grid-cols-12 bg-black' 
+          className='w-full md:w-1/2 grid grid-cols-12 bg-black' 
           onSubmit={(e) => e.preventDefault()}
         >
-          <input ref={searchText} className='col-span-9 p-4 m-4' type='text' placeholder={lang[langKey].gptSearchPlaceholder} />
+          <input type="text" value={searchText}  onChange={handleChangeSearchInput} className='col-span-9 p-4 m-4' placeholder={lang[langKey].gptSearchPlaceholder} />
 
-          <button 
-            className={'py-2 m-4 col-span-3 bg-red-700 text-white rounded-lg hover:bg-red-800'}
-            onClick= {handleGptSearchClick}
+          { searchText === "" ? <button className='py-2 m-4 col-span-3 bg-gray-700 text-white rounded-lg'>Search</button>  : searchText && <button 
+            className={'py-2 m-4 col-span-3 bg-red-700 text-white rounded-lg hover:bg-red-800 focus:ring-2 focus:ring-red-600 ring-offset-2 ring-opacity-50'}
+            onClick= { handleGptSearchClick}
           >
-            {lang[langKey].search}
-          </button>
+            { lang[langKey].search}
+          </button>}
+          
+
         </form>
     </div>
   )

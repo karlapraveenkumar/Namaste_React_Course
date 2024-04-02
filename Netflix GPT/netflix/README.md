@@ -45,7 +45,15 @@
     - GPT Search page
     - GPT Search bar
     - Multi Language feature in our app
-    - 
+    - Get Gemini ai api key
+    - GPT search api call
+    - fetched gpt movie suggestions from TMDB website
+    - created gptSlice and added data [Redux store]
+    - Reused movieList component to show movie suggestion container
+    - Memoization
+    - Added .env file to hide the api keys
+    - Added .env file into .gitignore
+    - Made our site Responsive
 
  
 # Features
