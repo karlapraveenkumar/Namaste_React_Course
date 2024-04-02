@@ -47,10 +47,7 @@ const Body = ()=> {
             <div className="filter flex">
                 <div className="p-4 m-0">
                     <input 
-<<<<<<< HEAD
                         data-testid="searchInput"
-=======
->>>>>>> f76f22b03b158cde3c92c6796e042d00c4b3d009
                         type="text" className="border border-solid border-black" placeholder="search anything" 
                         value={SearchText} onChange={(e)=>{setSearchText(e.target.value)}}
                     >
@@ -68,11 +65,8 @@ const Body = ()=> {
                 <div className="flex items-center">
                     <button onClick= {()=>{
                         const updatedList = ListofRestaurants.filter(res=> res.info.avgRating > 4.5)
-<<<<<<< HEAD
                         setfilteredRestaurants(updatedList);
-=======
                         setListofRestaurants(updatedList);
->>>>>>> f76f22b03b158cde3c92c6796e042d00c4b3d009
                     }} className="px-4 py-2 m-4 bg-gray-100 rounded-lg">
                         Top Rated Restaurants
                     </button>
