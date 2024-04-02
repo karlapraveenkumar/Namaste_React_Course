@@ -15,7 +15,7 @@ class About extends Component{
         //console.log("Parent rendering");
         return (
 
-            <div className=" bg-green-50 justify-center">
+            <div className="  w-full justify-center">
             <   h1 className="text-center font-bold text-2xl p-2 m-2">About</h1>
                 <div className="p-4 m-4">
                     <h1 className="text-lg text-center">LoggedInUser : </h1>

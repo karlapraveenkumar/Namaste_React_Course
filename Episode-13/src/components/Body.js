@@ -48,12 +48,10 @@ const Body = ()=> {
                 <div className="p-4 m-0">
                     <input 
                         data-testid="searchInput"
-<<<<<<< HEAD
-                        type="text" className="border border-solid border-black focus:outline-none focus:ring-2 focus:ring-purple-600 " 
+
+                        className="border border-solid border-black focus:outline-none focus:ring-2 focus:ring-purple-600 " 
                         placeholder="search anything" 
-=======
-                        type="text" className="border border-solid border-black" placeholder="search anything" 
->>>>>>> 3a35c1003b01781f96c2ac633f9045a982891463
+                        type="text"
                         value={SearchText} onChange={(e)=>{setSearchText(e.target.value)}}
                     >
                     </input>
@@ -71,12 +69,9 @@ const Body = ()=> {
                     <button onClick= {()=>{
                         const updatedList = ListofRestaurants.filter(res=> res.info.avgRating > 4.5)
                         setfilteredRestaurants(updatedList);
-<<<<<<< HEAD
+
                     }} className="px-4 py-2 m-4 bg-green-100 hover:bg-green-200 rounded-lg focus:ring-2 focus:ring-blue-500 ring-offset-2 focus:ring-opaciy-50 focus:outline-none">
-=======
-                        setListofRestaurants(updatedList);
-                    }} className="px-4 py-2 m-4 bg-gray-100 rounded-lg">
->>>>>>> 3a35c1003b01781f96c2ac633f9045a982891463
+
                         Top Rated Restaurants
                     </button>
                 </div>
