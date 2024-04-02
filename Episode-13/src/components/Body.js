@@ -47,11 +47,9 @@ const Body = ()=> {
             <div className="filter flex">
                 <div className="p-4 m-0">
                     <input 
-<<<<<<< HEAD
                         data-testid="searchInput"
-=======
->>>>>>> f76f22b03b158cde3c92c6796e042d00c4b3d009
-                        type="text" className="border border-solid border-black" placeholder="search anything" 
+                        type="text" className="border border-solid border-black focus:outline-none focus:ring-2 focus:ring-purple-600 " 
+                        placeholder="search anything" 
                         value={SearchText} onChange={(e)=>{setSearchText(e.target.value)}}
                     >
                     </input>
@@ -62,25 +60,21 @@ const Body = ()=> {
 
                         setfilteredRestaurants(filteredRestaurants);
                         
-                    }} className="px-4 py-2 m-4 bg-green-100 rounded-lg">Search</button>
+                    }} className="px-4 py-2 m-4 bg-green-100 hover:bg-green-200 rounded-lg focus:ring-2 focus:ring-blue-500 ring-offset-2 focus:ring-opaciy-50 focus:outline-none">Search</button>
                 </div>
                 
                 <div className="flex items-center">
                     <button onClick= {()=>{
                         const updatedList = ListofRestaurants.filter(res=> res.info.avgRating > 4.5)
-<<<<<<< HEAD
                         setfilteredRestaurants(updatedList);
-=======
-                        setListofRestaurants(updatedList);
->>>>>>> f76f22b03b158cde3c92c6796e042d00c4b3d009
-                    }} className="px-4 py-2 m-4 bg-gray-100 rounded-lg">
+                    }} className="px-4 py-2 m-4 bg-green-100 hover:bg-green-200 rounded-lg focus:ring-2 focus:ring-blue-500 ring-offset-2 focus:ring-opaciy-50 focus:outline-none">
                         Top Rated Restaurants
                     </button>
                 </div>
 
                 <div className=" flex items-center">
                     <label>UserName : </label>
-                    <input className="border border-black p-2" 
+                    <input className="border border-black ml-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent ..." 
                         value = {loggedInUser} onChange={(e)=>(setuserName(e.target.value))}></input>
                 </div>
 

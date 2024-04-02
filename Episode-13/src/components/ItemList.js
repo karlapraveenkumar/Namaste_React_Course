@@ -16,15 +16,12 @@ const ItemList = ({items})=>{
     return (
         <div>
             {items.map((item)=>(
-<<<<<<< HEAD
                 <div
                     data-testid= "foodItems"
                     className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between" 
                     key={item.card.info.id}
                 >
-=======
-                <div className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between" key={item.card.info.id}>
->>>>>>> f76f22b03b158cde3c92c6796e042d00c4b3d009
+                    {/*<div className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between" key={item.card.info.id}>*/}
 
                     <div className="w-9/12">
                         <div className=" py-2">
@@ -39,7 +36,9 @@ const ItemList = ({items})=>{
 
                     <div className="w-3/12 p-4">
                         <div className="absolute">
-                            <button onClick={()=>handleAddItem(item)} className="bg-black text-white mx-12 rounded-lg shadow-lg p-2">Add +</button>
+                            <button onClick={()=>handleAddItem(item)} 
+                                className="bg-green-500 text-white font-bold mx-12 rounded-lg shadow-lg p-2 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-pink-700 focus:border-transparent ..."
+                            >Add +</button>
                         </div>
                         <img src={CDN_URL + item.card.info.imageId} />
                     </div>

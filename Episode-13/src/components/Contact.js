@@ -1,5 +1,5 @@
 
-<<<<<<< HEAD
+
 const Contact = () => {
     return (
       <div>
@@ -23,15 +23,3 @@ const Contact = () => {
     );
   };
   export default Contact;
-=======
-const Contact = ()=>{
-
-    return (
-        <div>
-            <h1>Contact Us</h1>
-            <h2>This is React Web Series</h2>
-        </div>
-    )
-}
-export default Contact;
->>>>>>> f76f22b03b158cde3c92c6796e042d00c4b3d009
