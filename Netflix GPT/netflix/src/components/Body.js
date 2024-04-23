@@ -1,7 +1,7 @@
 import Login from './Login'
 import Browse from './Browse';
 import { RouterProvider, createBrowserRouter} from 'react-router-dom';
-import MovieTrailers from './MovieTrailers';
+import WatchTrailers from './WatchTrailers';
 
 
 
@@ -17,6 +17,14 @@ const Body = () => {
             path : "/browse",
             element : <Browse/>,
         },
+        {
+            path : "/watch",
+            element : <WatchTrailers/>
+        },
+        {
+            path : "/watchTrailer",
+            element : <WatchTrailers/>
+        }
     
     ]);
 

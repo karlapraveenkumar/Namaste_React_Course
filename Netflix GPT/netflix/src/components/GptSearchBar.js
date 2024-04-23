@@ -12,6 +12,7 @@ const GptSearchBar = () => {
 
   const dispatch = useDispatch();
   const langKey = useSelector(store=> store.config.lang);
+  const movieNames = useSelector(store=> store.gpt.movieNames);
 
 
   const [searchText, setSearchText] = useState("");
@@ -55,6 +56,11 @@ const GptSearchBar = () => {
 
   }
 
+  const clearSuggestions = ()=>{
+    dispatch(addGptMovieResult({movieNames:null, movieResults:null}));
+    setSearchText('');
+  }
+
 
 
   return (
@@ -63,14 +69,17 @@ const GptSearchBar = () => {
           className='w-full md:w-1/2 grid grid-cols-12 bg-black' 
           onSubmit={(e) => e.preventDefault()}
         >
-          <input type="text" value={searchText}  onChange={handleChangeSearchInput} className='col-span-9 p-4 m-4' placeholder={lang[langKey].gptSearchPlaceholder} />
+          <input type="text" value={searchText}  onChange={handleChangeSearchInput} className='col-span-8 p-4 m-4' placeholder={lang[langKey].gptSearchPlaceholder} />
 
-          { searchText === "" ? <button className='py-2 m-4 col-span-3 bg-gray-700 text-white rounded-lg'>Search</button>  : searchText && <button 
-            className={'py-2 m-4 col-span-3 bg-red-700 text-white rounded-lg hover:bg-red-800 focus:ring-2 focus:ring-red-600 ring-offset-2 ring-opacity-50'}
+          { searchText === "" ? <button className='py-2 m-4 col-span-2 bg-gray-700 text-white rounded-lg'>{lang[langKey].search}</button>  : searchText && <button 
+            className={'py-2 m-4 col-span-2 bg-red-700 text-white rounded-lg hover:bg-red-800 focus:ring-2 focus:ring-red-600 ring-offset-2 ring-opacity-50'}
             onClick= { handleGptSearchClick}
           >
             { lang[langKey].search}
           </button>}
+
+          {movieNames?.length ? <button onClick={clearSuggestions} className='py-2 m-4 col-span-2 bg-red-700 text-white rounded-lg hover:bg-red-800 focus:ring-2 focus:ring-red-600 ring-offset-2 ring-opacity-50'>Clear</button>
+            : <button className='py-2 m-4 col-span-2 bg-gray-700 text-white rounded-lg'>Clear</button>}
           
 
         </form>
