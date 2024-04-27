@@ -9,8 +9,11 @@ export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/sea
 
 export const SEARCH_ICON = "https://img.icons8.com/search";
 
-export const LIVE_CHAT_API = 
-    "https://www.googleapis.com/youtube/v3/liveChat/messages?liveChatId=Cg0KCzZwX0pNLUk3RlVnKicKGFVDdmpnWHZCbGJRaXlkZmZaVTdtMV9hdxILNnBfSk0tSTdGVWc&part=snippet,authorDetails&maxResults=20&key="
-        +process.env.GOOGLE_API_KEY;
 
 export const OFFSET_LIVE_CHAT = 15;
+
+export const SEARCH_RESULT_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&"
+    //"https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key="
+
+
+        //https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=YOURKEYWORD&type=video&key=YOURAPIKEY

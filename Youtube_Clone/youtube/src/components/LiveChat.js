@@ -38,14 +38,15 @@ const LiveChat = () => {
 
   return (
     <>
-        <div className='w-full h-[460px] ml-2 p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse'>
+        <div className='w-full h-52 md:h-[460px] md:ml-2 my-2 md:p-2 border border-black bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse'>
             {/** Don't use Index as Key */}
             {chatMessages?.map((c,index)=> 
                 <ChatMessage key={index} name={c.name}  message={c.message}/>
             )}
         </div>
+
         <form
-            className='w-full h-[40px] p-2 ml-2 border border-black rounded-lg' 
+            className='w-full h-[40px] p-2 md:ml-2 border border-black rounded-lg' 
             onSubmit={(e)=> {
                 e.preventDefault();
                 dispatch(addMessage({
@@ -57,15 +58,17 @@ const LiveChat = () => {
             }}
             
             >
-            <input 
-                value={inputComment} 
-                onChange={(e)=> setInputComment(e.target.value)} 
-                className='w-96 px-2' 
-                type='text' 
-                placeholder='Type your comment' 
-            />
-            <button
-                className='px-2 mx-2 bg-green-100'>Enter</button>
+            <div className='flex'>
+                <input 
+                    value={inputComment} 
+                    onChange={(e)=> setInputComment(e.target.value)} 
+                    className='w-96 px-2' 
+                    type='text' 
+                    placeholder='Type your comment' 
+                />
+                <button className='px-2 mx-2 bg-green-100'>Enter</button>
+            </div>
+
         </form>
     </>
   )
