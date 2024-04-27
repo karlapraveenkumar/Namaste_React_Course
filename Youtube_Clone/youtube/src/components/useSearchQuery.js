@@ -3,7 +3,7 @@ import { SEARCH_RESULT_API } from '../utils/constants';
 import { getSearchResultVideos} from '../utils/searchSlice';
 import { useDispatch} from 'react-redux';
 
-const useSearchQuery = ({searchParams,buttonSearch}) => {
+const useSearchQuery = ({searchParams}) => {
 
     const dispatch = useDispatch();
 

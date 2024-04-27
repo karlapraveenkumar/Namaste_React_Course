@@ -10,7 +10,6 @@ const SearchResultsPage = () => {
 
     const [searchParams] = useSearchParams();
 
-    
     useSearchQuery({searchParams});
 
     const videos = useSelector(store=> store?.search?.searchResultVideos);

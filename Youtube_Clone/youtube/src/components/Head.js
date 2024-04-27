@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/appSlice'
 import { YOUTUBE_SEARCH_API } from '../utils/constants';
 import { cacheResults } from '../utils/searchSlice';
-import {useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+
 
 
 const Head = () => {
@@ -11,9 +12,10 @@ const Head = () => {
     const[searchQuery, setSearchQuery] = useState("");
     const[suggestions, setSuggestions] = useState([]);
     const[showSuggestions, setShowSuggestions] = useState(false);
-    const[query, setQuery] = useState('');
+    //const[query, setQuery] = useState('');
 
     const navigate = useNavigate();
+    //const history = UseHistory();
 
     const searchCache = useSelector((store)=> store.search);
     const dispatch = useDispatch()
@@ -50,10 +52,13 @@ const Head = () => {
         dispatch(toggleMenu());
     }
 
+    
     const handleSuggestion = (e)=>{
-        setQuery(e.target.innerText);
-        navigate('/results?search_query='+encodeURI(e.target.innerText));
+        //setQuery(e.target.innerText);
+        //<Link to={'/results?search_query='+encodeURI(e.target.innerText)}>{e}</Link>;
+        navigate(`/results?search_query=${encodeURI(e)}`);
     }
+
 
 
 
@@ -92,14 +97,14 @@ const Head = () => {
                     <ul>
                         {suggestions.map((s,index)=>
 
-                            <li key={index} onMouseDown={(e)=>handleSuggestion(e)} className='py-1 px-3 hover:bg-gray-200'>
+                            <li key={index} onMouseDown={()=>handleSuggestion(s)} className='py-1 px-3 hover:bg-gray-200'>
                                 <img  className='mr-5 h-4 ml-3 inline-block' alt='search-icon' src='https://cdn-icons-png.flaticon.com/512/482/482631.png' />
                                 <span>{s}</span>
                             </li>
                             
                         )}
                     </ul>
-                </div> 
+                </div>
                 : null
             }
         </div>

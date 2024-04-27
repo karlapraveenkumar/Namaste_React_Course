@@ -7,6 +7,7 @@ const SearchPageShimmer = () => {
                 <div className='flex w-72 md:w-full'>
 
                   <div className='p-2 m-2 w-40 md:w-[500px] md:h-[250px] cursor-pointer bg-gray-100'>
+                  
                   </div>
     
                   <div className='p-2 m-2 w-32 flex flex-col md:w-[700px]'>

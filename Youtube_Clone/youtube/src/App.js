@@ -3,10 +3,12 @@ import Head from './components/Head';
 import Body from './components/Body';
 import { Provider } from 'react-redux';
 import store from './utils/store';
-import {RouterProvider, createBrowserRouter} from "react-router-dom";
+import { RouterProvider, createBrowserRouter} from "react-router-dom";
 import MainContainer from './components/MainContainer';
 import WatchPage from './components/WatchPage';
 import SearchResultsPage from './components/SearchResultsPage';
+import Sidebar from './components/Sidebar';
+import { Outlet } from 'react-router-dom';
 
 export const appRouter = createBrowserRouter([
   {
@@ -33,14 +35,16 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div>
-        
-        <RouterProvider router={appRouter}>
+      <RouterProvider router={appRouter}>
+        <div>
           <Head/>
-        </RouterProvider>
-      </div>
+          <div className='flex'>
+            <Sidebar/>
+            <Outlet/>
+          </div>
+        </div>
+      </RouterProvider>
     </Provider>
-
   );
 }
 
