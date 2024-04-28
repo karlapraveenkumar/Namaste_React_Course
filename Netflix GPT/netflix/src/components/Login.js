@@ -66,7 +66,7 @@ const Login = ()=>{
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    seterrorMessage(errorCode +"-"+ errorMessage);
+                    seterrorMessage(errorMessage);
                 });
 
         }else{
@@ -79,7 +79,7 @@ const Login = ()=>{
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    seterrorMessage(errorCode + "-" + errorMessage);
+                    seterrorMessage(errorMessage);
                 });
 
         }
@@ -91,12 +91,15 @@ const Login = ()=>{
 
     return(
         <div className="w-screen">
+            
             <Header/>
+            
 
             <div className="absolute">
                 <img className="h-screen object-cover md:w-screen" src={Background_image}
                     alt="Background_image" />
             </div>
+            <p className="absolute text-red-400 font-bold text-lg py-2 z-50 ml-[590px] mt-36  ">{errorMessage}</p>
             <form onSubmit={(e)=>e.preventDefault()} className="absolute bg-black w-full md:w-3/12 p-10  mx-auto my-36 right-0 left-0 text-white rounded-lg bg-opacity-80">
                 
                 <h1 className="font-bold text-white text-2xl md:text-3xl my-4">{isSignInForm ? "Sign In" : "Sign Up"}</h1>
@@ -116,7 +119,7 @@ const Login = ()=>{
                     {isSignInForm ? "Sign In" : "Sign Up"}
                 </button>
 
-                <p className="text-red-400 font-bold text-lg py-2 ">{errorMessage}</p>
+                
 
                 <p className="py-6 cursor-pointer hover:underline" 
                     onClick={toggleSignInForm}
